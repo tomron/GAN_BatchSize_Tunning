@@ -28,6 +28,7 @@ class Policy(Enum):
     FAKE_INCREASE = 2
     REAL_INCREASE = 3
     BOTH_INCREASE = 4
+    RANDOM = 5
 
 POLICIES = [policy.name.lower() for policy in Policy]
 
@@ -138,6 +139,10 @@ def get_batch_sizes(opt, epoch):
         batch_param = np.power(2, int(epoch/opt.batch_interval))
         batch_size = int(opt.batch_size * batch_param)
         return batch_size, batch_size
+    if policy == Policy.RANDOM.name:
+        real_batch_size = random.randint(1, 10000)
+        fake_batch_size = random.randint(1, 10000)
+        return real_batch_size, fake_batch_size
 
 def get_basic_parser():
     """ Basic argumnet parser
