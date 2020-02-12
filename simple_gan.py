@@ -20,8 +20,6 @@ def parse_arguments(args):
         [argparse.Namespace] -- parsed arguments
     """
     parser = utils.get_basic_parser()
-    parser.usage = "Simple GAN"
-    parser.description = "Simple GAN"
     parser.add_argument("--latent_dim", type=int, default=100,
                         help="dimensionality of the latent space")
     opt = parser.parse_args(args)

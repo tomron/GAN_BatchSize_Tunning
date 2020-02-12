@@ -14,8 +14,6 @@ def parse_arguments(args):
     Parse program arguments
     """
     parser = utils.get_basic_parser()
-    parser.usage = "DCGAN"
-    parser.description = "DCGAN"
     parser.add_argument('--nz', type=int, default=100, help='size of the latent z vector')
     parser.add_argument('--ngf', type=int, default=64,
                         help='the depth of feature maps carried through the generator')
