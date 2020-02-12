@@ -1,4 +1,5 @@
-import os
+""" Graph batch sizes according to policy and save figure locally """
+
 import sys
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -17,8 +18,8 @@ def main(args):
     df = pd.DataFrame(batch_sizes, columns=['real_batch', 'fake_batch'])
     max_size = max(df.max())
     ax = df.plot(ylim=(0, int(1.05 * max_size)),
-            xlim=(0, opt.n_epochs),
-            alpha=0.6)
+                 xlim=(0, opt.n_epochs),
+                 alpha=0.6)
     ax.set_xlabel("epoch")
     plt.savefig("{}_{}_{}_{}.png".format(
                 opt.policy, opt.batch_size, opt.batch_interval, opt.n_epochs),
